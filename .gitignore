@@ -1,0 +1,45 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/Angular_Frontend/dist
+/Angular_Frontend/tmp
+/Angular_Frontend/out-tsc
+/Angular_Frontend/bazel-out
+
+# Node
+/Angular_Frontend/node_modules
+/Angular_Frontend/npm-debug.log
+/Angular_Frontend/yarn-error.log
+
+# IDEs and editors
+/Angular_Frontend/.idea/
+/Angular_Frontend/.project
+/Angular_Frontend/.classpath
+/Angular_Frontend/.c9/
+/Angular_Frontend/*.launch
+/Angular_Frontend/.settings/
+/Angular_Frontend/*.sublime-workspace
+
+# Visual Studio Code
+/Angular_Frontend/.vscode/*
+/Angular_Frontend/!.vscode/settings.json
+/Angular_Frontend/!.vscode/tasks.json
+/Angular_Frontend/!.vscode/launch.json
+/Angular_Frontend/!.vscode/extensions.json
+/Angular_Frontend/.history/*
+
+# Miscellaneous
+/Angular_Frontend/.angular/cache
+/Angular_Frontend.sass-cache/
+/Angular_Frontend/connect.lock
+/Angular_Frontend/coverage
+/Angular_Frontend/libpeerconnection.log
+/Angular_Frontend/testem.log
+/Angular_Frontend/typings
+
+# System files
+.DS_Store
+/Angular_Frontend/Thumbs.db
+
+
+/Backend/__pycache__
