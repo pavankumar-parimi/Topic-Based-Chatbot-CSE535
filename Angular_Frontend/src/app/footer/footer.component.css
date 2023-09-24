@@ -1,0 +1,18 @@
+h5{
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    position: fixed;        
+    background: #008080;
+    color: #fff;
+    margin: 0;
+    height: 6%;
+}
+
+p {
+    text-align: center;
+    font-size: 15px;
+    vertical-align: middle;
+    margin-top: 12px;
+}

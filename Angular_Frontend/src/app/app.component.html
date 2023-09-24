@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> 
+  </head>
+  <body>
+    <app-header></app-header>
+    <div class="all">
+      <div class="left">
+        <!-- <p>Hi, Welcome to Caesars. You can chat with us on various topics such as Politics, Education, Technology, Environment and HealthCare.
+          We are eager to help you. Let's get started.
+        </p> -->
+        <!-- <p id="start">We are eager to help you. Let's get started.</p> -->
+        <!-- <canvas baseChart
+          [type]="'pie'"
+          [datasets]="pieChartDatasets"
+          [labels]="pieChartLabels"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [legend]="pieChartLegend">
+        </canvas> -->
+        <canvas baseChart width="600" height="300"
+          [data]="barChartData"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [type]="'bar'">
+        </canvas>
+      </div>
+      <div class="middle">
+        <div *ngIf="show" class="w3-container w3-center w3-animate-right">
+          <!-- <router-outlet></router-outlet> -->
+          <div class="chatbot">
+            <div class="heading">
+              <div class="header-icon"><i class="fas fa-robot"></i></div>
+              <div class="header-msg"><p>ChatBot</p></div>
+              <div class="header-btn">
+                <button (click)="openTopics()" *ngIf="!show1">Select Topics</button>
+                <button (click)="openTopics()" *ngIf="show1">GoTo Chat</button>
+              </div>
+            </div>
+            <div class="chat" #chat>
+              <div *ngIf="show1">
+                <p>Select Topics : </p>
+                <ng-multiselect-dropdown
+                  [placeholder]="'Select the Topic'"
+                  [settings]="dropdownSettings"
+                  [data]="topicsList"
+                  [(ngModel)]="selectedItems"
+                  width="60%">
+                </ng-multiselect-dropdown>
+              </div>
+              <div *ngIf="!show1">
+                <ng-container *ngFor="let message of messages">
+                  <div class="msg" *ngIf="message.author === 'bot'" >
+                    <div class="bot-icon"><i class="fas fa-robot"></i></div>
+                    <div class="message" [ngClass]="{from: message.author === 'bot'}">
+                      {{ message.content }}
+                    </div>
+                  </div>
+                  <div class="relevancy" *ngIf="message.author === 'bot'">
+                    <button class="relevant" (click)="isRelevant(true, selectedItems)"><i class="fa fa-check" style="margin-right: 10px;"></i>Relevant</button>
+                    <button class="irrelevant" (click)="isRelevant(false, selectedItems)"><i class="fa fa-remove" style="margin-right: 10px;"></i>Irrelevant</button>
+                  </div>
+                  <div class="msg" *ngIf="message.author === 'user'">
+                    <div class="message" [ngClass]="{to: message.author === 'user'}">
+                      {{ message.content }}
+                    </div>
+                    <div class="user-icon"><i class="fas fa-user"></i></div>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+            <div class="send"  *ngIf="!show1">
+              <!-- <label *ngIf="messages.length == 0; else dialogInfo" for="nameField">Chat Bot</label> -->
+              <input [(ngModel)]="value" (keyup.enter)="sendMessage(selectedItems)" type="text" />
+              <button (click)="sendMessage(selectedItems)"><i class="fa fa-send" style="font-size: 20px;"></i></button>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!show" class="chatmsg">
+          <p>Hi There! Chat with us for any questions.</p>
+        </div>
+      </div>
+      <div class="right">
+        <button class="btn" (click)="openChat(true)" *ngIf="!show"><i class="fa fa-comment"></i></button>
+        <button class="btn" (click)="openChat(false)" *ngIf="show"><i class="fa fa-remove"></i></button>
+      </div>
+    </div>
+    <!-- <div class="footer">
+      <p><i class="fa fa-copyright" aria-hidden="true" style="font-weight: bold;"></i> CopyRight</p>
+      <button class="btn" (click)="openChat()"><i class="fa fa-comment"></i></button>
+    </div> -->
+    <app-footer></app-footer>
+  </body>
+</html>

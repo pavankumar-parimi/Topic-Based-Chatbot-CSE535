@@ -1,0 +1,14 @@
+runtime: nodejs18
+
+instance_class: F2
+
+env_variables: 
+  BUCKET_NAME: "ptb_chatbot"
+
+handlers:
+- url: /
+  static_files: dist/angular-frontend/index.html
+  upload: dist/angular-frontend/index.html
+
+- url: /
+  static_dir: angular-frontend 
